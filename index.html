@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Japan — A Taste of Amazing</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f1e5;
+      color: #181818;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 7%;
+      background: rgba(15, 15, 15, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #d62828;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #e63946;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: white;
+
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+        url("https://www.lot.com/content/dam/lot/lot-com/destination-photos/japonia/Tokyo-5%20.coreimg.jpg/1723628368208/Tokyo-5%20.jpg");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 30px;
+      animation: fadeUp 1s ease;
+    }
+
+    .japanese {
+      font-size: 1.3rem;
+      color: #ffccd0;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.9;
+      margin-bottom: 25px;
+      letter-spacing: -5px;
+    }
+
+    .hero h1 span {
+      color: #e63946;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+      color: #eee;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 32px;
+
+      background: #d62828;
+      color: white;
+      text-decoration: none;
+
+      border-radius: 30px;
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      background: #b91f1f;
+      box-shadow: 0 10px 25px rgba(214, 40, 40, 0.35);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title small {
+      color: #d62828;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: 3rem;
+      margin-top: 10px;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 15px auto;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #fffaf0;
+    }
+
+    .about-grid {
+      max-width: 1100px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 450px;
+
+      background:
+        linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.2)),
+        url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      border-radius: 8px;
+      box-shadow: 15px 15px 0 #d62828;
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #555;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    /* FOOD */
+    .food {
+      background: #181818;
+      color: white;
+    }
+
+    .food .section-title p {
+      color: #aaa;
+    }
+
+    .food-grid {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: #252525;
+      border-radius: 10px;
+      overflow: hidden;
+
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .food-image {
+      height: 230px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .sushi {
+      background-image: url("https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1000&q=80");
+    }
+
+    .ramen {
+      background-image: url("https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1000&q=80");
+    }
+
+    .tempura {
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFOLHJhwD1gzrlhX-nSh6xqXC5fdQQHpp44wP_LEIQw&s=10");
+    }
+
+    .yakitori {
+      background-image: url("https://honestcooking.com/wp-content/uploads/2026/06/easy-chicken-and-scallion-negima-yakitori-9x16-1.jpg");
+    }
+
+    .okonomiyaki {
+      background-image: url("https://res.cloudinary.com/hksqkdlah/image/upload/c_fill,dpr_2.0,f_auto,fl_lossy.progressive.strip_profile,g_faces:auto,q_auto:low/SFS_Okonomiyaki_422_fi2wab");
+    }
+
+    .matcha {
+      background-image: url("https://images.unsplash.com/photo-1582793988951-9aed5509eb97?auto=format&fit=crop&w=1000&q=80");
+    }
+
+    .food-info {
+      padding: 25px;
+    }
+
+    .food-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .food-info p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+
+      background: #3b2020;
+      color: #ff8c8c;
+
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    /* WHY FOOD IS AMAZING */
+    .reasons {
+      background: #f7f1e5;
+    }
+
+    .reason-grid {
+      max-width: 1100px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .reason {
+      background: white;
+      padding: 35px 30px;
+      border-radius: 8px;
+      border-top: 4px solid #d62828;
+
+      transition: 0.3s;
+    }
+
+    .reason:hover {
+      transform: translateY(-7px);
+    }
+
+    .number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #d62828;
+      opacity: 0.7;
+    }
+
+    .reason h3 {
+      margin: 15px 0;
+      font-size: 1.4rem;
+    }
+
+    .reason p {
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* CULTURE */
+    .culture {
+      background: #fffaf0;
+    }
+
+    .culture-box {
+      max-width: 1000px;
+      margin: auto;
+
+      padding: 60px;
+      text-align: center;
+
+      background:
+        linear-gradient(rgba(20,20,20,0.8), rgba(20,20,20,0.8)),
+        url("https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=1800&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      color: white;
+      border-radius: 8px;
+    }
+
+    .culture-box h2 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+    }
+
+    .culture-box p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #101010;
+      color: #777;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer strong {
+      color: #fff;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      nav ul {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 0.8rem;
+      }
+
+      .about-grid,
+      .food-grid,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.3rem;
+      }
+
+      .culture-box {
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">JAPAN<span>.</span></div>
+
+    <ul>
+      <li><a href="#about">Japan</a></li>
+      <li><a href="#food">Food</a></li>
+      <li><a href="#why">Why?</a></li>
+      <li><a href="#culture">Culture</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="japanese">日本 • NIPPON</div>
+
+      <h1>
+        Taste<br>
+        <span>Japan.</span>
+      </h1>
+
+      <p>
+        From steaming bowls of ramen to perfectly crafted sushi,
+        Japan is a country where food is treated as both an art
+        and an experience.
+      </p>
+
+      <a href="#food" class="button">
+        Explore Japanese Food ↓
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ABOUT JAPAN -->
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <small>Discover Japan</small>
+      <h2>More Than Just Food</h2>
+
+      <p>
+        Japan combines ancient traditions, modern cities,
+        beautiful landscapes and a food culture unlike anywhere else.
+      </p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-image"></div>
+
+      <div class="about-text">
+
+        <h3>A country of contrasts.</h3>
+
+        <p>
+          Japan is a place where traditional temples can exist
+          alongside huge skyscrapers and futuristic technology.
+        </p>
+
+        <p>
+          This contrast can also be seen in Japanese food.
+          Traditional recipes have been passed down for generations,
+          while chefs continue to create new and exciting dishes.
+        </p>
+
+        <p>
+          Food in Japan is not only about taste. Presentation,
+          texture, freshness and seasonality are all important.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOD -->
+  <section class="food" id="food">
+
+    <div class="section-title">
+
+      <small>Eat Your Way Through Japan</small>
+
+      <h2>Japanese Food</h2>
+
+      <p>
+        Every dish has its own personality. Try something
+        fresh, crispy, comforting or completely unexpected.
+      </p>
+
+    </div>
+
+
+    <div class="food-grid">
+
+      <!-- SUSHI -->
+      <div class="food-card">
+
+        <div class="food-image sushi"></div>
+
+        <div class="food-info">
+
+          <h3>Sushi</h3>
+
+          <p>
+            Fresh ingredients combined with carefully prepared
+            rice. Simple, elegant and full of flavour.
+          </p>
+
+          <span class="tag">FRESH</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- RAMEN -->
+      <div class="food-card">
+
+        <div class="food-image ramen"></div>
+
+        <div class="food-info">
+
+          <h3>Ramen</h3>
+
+          <p>
+            Warm noodles, rich broth and toppings create
+            the ultimate Japanese comfort food.
+          </p>
+
+          <span class="tag">COMFORT</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEMPURA -->
+      <div class="food-card">
+
+        <div class="food-image tempura"></div>
+
+        <div class="food-info">
+
+          <h3>Tempura</h3>
+
+          <p>
+            Seafood or vegetables covered in a light batter
+            and fried until perfectly crispy.
+          </p>
+
+          <span class="tag">CRISPY</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- YAKITORI -->
+      <div class="food-card">
+
+        <div class="food-image yakitori"></div>
+
+        <div class="food-info">
+
+          <h3>Yakitori</h3>
+
+          <p>
+            Delicious grilled chicken skewers, often served
+            with a sweet and savoury sauce.
+          </p>
+
+          <span class="tag">GRILLED</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- OKONOMIYAKI -->
+      <div class="food-card">
+
+        <div class="food-image okonomiyaki"></div>
+
+        <div class="food-info">
+
+          <h3>Okonomiyaki</h3>
+
+          <p>
+            A savoury Japanese pancake packed with different
+            ingredients and topped with delicious sauces.
+          </p>
+
+          <span class="tag">SAVOURY</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- MATCHA -->
+      <div class="food-card">
+
+        <div class="food-image matcha"></div>
+
+        <div class="food-info">
+
+          <h3>Matcha</h3>
+
+          <p>
+            Finely ground green tea with a distinctive flavour,
+            used in drinks and many Japanese desserts.
+          </p>
+
+          <span class="tag">SWEET</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY IS IT AMAZING -->
+  <section class="reasons" id="why">
+
+    <div class="section-title">
+
+      <small>Why We Love It</small>
+
+      <h2>Why Is Japanese Food So Amazing?</h2>
+
+      <p>
+        Japanese cuisine focuses on details that make
+        even simple ingredients taste special.
+      </p>
+
+    </div>
+
+
+    <div class="reason-grid">
+
+      <div class="reason">
+
+        <div class="number">01</div>
+
+        <h3>Fresh Ingredients</h3>
+
+        <p>
+          Fresh fish, vegetables, rice and other ingredients
+          are carefully selected to create high-quality dishes.
+        </p>
+
+      </div>
+
+
+      <div class="reason">
+
+        <div class="number">02</div>
+
+        <h3>Perfect Balance</h3>
+
+        <p>
+          Japanese cooking often balances different flavours,
+          textures and temperatures instead of relying on just one.
+        </p>
+
+      </div>
+
+
+      <div class="reason">
+
+        <div class="number">03</div>
+
+        <h3>Beautiful Presentation</h3>
+
+        <p>
+          The appearance of food matters. Colours, shapes
+          and arrangement can make a meal feel like artwork.
+        </p>
+
+      </div>
+
+
+      <div class="reason">
+
+        <div class="number">04</div>
+
+        <h3>Huge Variety</h3>
+
+        <p>
+          Japan has everything from sushi and ramen to
+          street food, desserts, grilled dishes and regional specialities.
+        </p>
+
+      </div>
+
+
+      <div class="reason">
+
+        <div class="number">05</div>
+
+        <h3>Tradition</h3>
+
+        <p>
+          Many Japanese dishes have long histories and
+          traditions that have been passed from generation to generation.
+        </p>
+
+      </div>
+
+
+      <div class="reason">
+
+        <div class="number">06</div>
+
+        <h3>Seasonality</h3>
+
+        <p>
+          Japanese cuisine often changes with the seasons,
+          using ingredients when they are at their best.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CULTURE -->
+  <section class="culture" id="culture">
+
+    <div class="culture-box">
+
+      <h2>Food Is Part of the Experience</h2>
+
+      <p>
+        In Japan, eating can be about much more than satisfying
+        hunger. Restaurants, markets, festivals and family meals
+        all create different experiences. From eating ramen in a
+        busy Tokyo neighbourhood to enjoying traditional food in
+        Kyoto, Japanese cuisine gives you another way to experience
+        the culture.
+      </p>
+
+      <a href="#food" class="button">
+        Back to the Food
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      <strong>JAPAN.</strong> — Discover the taste of Japan.
+    </p>
+
+    <p style="margin-top: 10px;">
+      Made with ❤️ for Japanese food.
+    </p>
+
+  </footer>
+
+</body>
+</html>
